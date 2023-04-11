@@ -242,8 +242,7 @@ function scan(api) {
   return api
 }
 
-module.exports = function init(componentOrRootNode, nodeOrAttrs) {
-  const $window = global.window = domino.createWindow('')
+module.exports = function init(componentOrRootNode, nodeOrAttrs, $window = domino.createWindow('')) {
   const render = require('mithril/render/render')($window)
   let rootNode = {
     view: () => {
