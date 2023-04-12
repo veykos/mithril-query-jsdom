@@ -1,6 +1,6 @@
 {
   "name": "mithril-query-jsdom",
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "Query mithril virtual dom for testing purposes but also allow use of other window objects other than domino's",
   "main": "index.js",
   "types": "mithril-query.d.ts",
