@@ -142,9 +142,9 @@ function scan(api) {
   function setValue(selector, string, eventData = {}) {
     const el = first(selector)
     el.value = string
-    const inputEvent = new Event('input', eventData)
-    const changeEvent = new Event('change', eventData)
-    const keyupEvent = new Event('keyup', eventData)
+    const inputEvent = $window ? new $window.event('input', eventData) : new Event('input', eventData)
+    const changeEvent = $window ? new $window.event('change', eventData) : new Event('change', eventData)
+    const keyupEvent = $window ? new $window.event('keyup', eventData) : new Event('keyup', eventData)
     el.dispatchEvent(inputEvent)
     el.dispatchEvent(changeEvent)
     el.dispatchEvent(keyupEvent)
@@ -159,7 +159,7 @@ function scan(api) {
 
   function trigger(eventName) {
     return function(selector, eventData) {
-      const event = new Event(eventName, eventData)
+      const event = $window ? new $window.Event(eventName, eventData) : new Event(eventName, eventData)
       const el = first(selector)
       el.dispatchEvent(event)
       if (event.redraw !== false) {
@@ -264,7 +264,7 @@ module.exports = function init(componentOrRootNode, nodeOrAttrs, $window = domin
     redraw,
     onremove,
     rootEl: $window.document.body,
-  })
+  }, $window)
 }
 
 function ensureGlobals() {
