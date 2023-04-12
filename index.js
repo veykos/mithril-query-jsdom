@@ -54,7 +54,7 @@ function consoleLogHtml(els) {
   console.log(els.map(el => formatHtml(el.outerHTML)).join('---------\n'))
 }
 
-function scan(api) {
+function scan(api, $window) {
   const rootEl = api.rootEl
 
   function find(selectorString, node) {
