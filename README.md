@@ -42,7 +42,7 @@ afterAll(() => {
 
 describe('SimpleComponent should', () => {
     test('contain the top bar', () => {
-        const component = mq.default(SimpleComponent, {}, dom.window);get
+        const component = mq.default(SimpleComponent, {}, dom.window); // Here we pass dom.window as an argument to the function
         component.should.have('.top-bar');
     });
     test('Should have a background color of red, () => {
@@ -55,4 +55,12 @@ describe('SimpleComponent should', () => {
 ```
 
 Notice how we comparing to the normal mihtril-query mounting of a component we pass a third argument which is ```dom.window```. After the component is mounted you can do simple queries with mithril-query or query directly the DOM through dom.window / dom.document. Keep in mind you'll need to query using getElementById / querySelector. You have all the window / document methods that JSDOM supports to unleash your testing creativity. This is very useful if you'd want to test for CSS as domino doesn't support getComputedStyle.
+
+If you skip passing the JSDOM created window object, then mithril-query's default way of working will be to create a DOM with domino js.
+
+## Credits and support
+
+The mitrhil-query team created the library so all thanks for the basic package goes to them
+Any questions, issues and bugs you find should be forwarded to them if they're not related to the JSDOM functionality.
+
 
