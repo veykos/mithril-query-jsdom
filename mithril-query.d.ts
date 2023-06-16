@@ -55,6 +55,6 @@ interface MithrilQueryInstance {
   }
 }
 
-declare module 'mithril-query' {
+declare module 'mithril-query-jsdom' {
   export = MithrilQuery
 }
